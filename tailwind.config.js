@@ -1,25 +1,31 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: "class", // Required for class-based dark theme toggling
+const config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",        // Your App directory
-    "./components/**/*.{js,ts,jsx,tsx}", // Your reusable components
-    "./data/**/*.{js,ts,jsx,tsx}",       // Optional: if you style anything in `data/`
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // or 'media' or false
   theme: {
     extend: {
-      // Optional: Customize your dark/light colors if needed
       colors: {
-        brand: {
-          light: "#f0f4ff",
-          dark: "#0f172a",
-        },
+        primary: '#a78bfa', // pastel purple
+        secondary: '#fbcfe8', // pastel pink
+        backgroundLight: '#ffe4e6', // light pink background
+        backgroundDark: '#1e293b', // dark background
       },
-      transitionProperty: {
-        width: 'width',
-        spacing: 'margin, padding',
+      borderRadius: {
+        'lg': '1rem',
+        'xl': '1.5rem',
+      },
+      boxShadow: {
+        card: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      },
+      fontFamily: {
+        sans: ['Arial', 'Helvetica', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
+
+export default config;

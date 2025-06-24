@@ -1,34 +1,35 @@
-"use client";
-import artists from "@/data/artists";
-import { useState } from "react";
-import { motion } from "framer-motion";
+'use client';
+
+import artists from '@/data/artists';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import PageWrapper from '@/components/PageWrapper';
 
 export default function ArtistsPage() {
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState('');
   const filteredArtists = artists.filter(
-    (artist) => filter === "" || artist.category === filter
+    (artist) => filter === '' || artist.category === filter
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-100 via-rose-100 to-amber-100 text-gray-900 px-4 py-10">
-
-      <h1 className="text-4xl font-bold mb-8 text-center text-blue-700 drop-shadow">
+    <PageWrapper>
+      <h1 className="text-4xl font-bold mb-8 text-center text-blue-700 dark:text-blue-300 drop-shadow">
         🎤 Artist Listings
       </h1>
 
       {/* Filter Buttons */}
       <div className="mb-10 flex flex-wrap justify-center gap-4">
-        {["", "Singer", "Dancer", "DJ"].map((cat) => (
+        {['', 'Singer', 'Dancer', 'DJ'].map((cat) => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
             className={`px-5 py-2 rounded-full font-semibold shadow transition ${
               filter === cat
-                ? "bg-blue-600 text-white scale-105"
-                : "bg-white text-blue-600 border border-blue-300 hover:bg-blue-50"
+                ? 'bg-blue-600 text-white scale-105'
+                : 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-300 border border-blue-300 dark:border-blue-500 hover:bg-blue-50 dark:hover:bg-gray-600'
             }`}
           >
-            {cat === "" ? "All" : cat}
+            {cat === '' ? 'All' : cat}
           </button>
         ))}
       </div>
@@ -42,19 +43,26 @@ export default function ArtistsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ scale: 1.03 }}
-            className="p-6 rounded-xl shadow-lg hover:shadow-xl bg-white/90 backdrop-blur-md border border-white/40 transition-all duration-300"
+            className="p-6 rounded-xl shadow-lg hover:shadow-xl 
+              bg-white/90 dark:bg-gray-800/90 backdrop-blur-md 
+              border border-white/40 dark:border-gray-700 
+              transition-all duration-300"
           >
-            <h3 className="text-xl font-bold text-purple-700 mb-1">{artist.name}</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="text-xl font-bold text-purple-700 dark:text-purple-300 mb-1">
+              {artist.name}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               {artist.category} • {artist.location}
             </p>
-            <p className="mt-2 font-semibold text-gray-800">{artist.price}</p>
-            <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+            <p className="mt-2 font-semibold text-gray-800 dark:text-white">
+              {artist.price}
+            </p>
+            <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 dark:hover:bg-blue-500 transition">
               Ask for Quote
             </button>
           </motion.div>
         ))}
       </div>
-    </main>
+    </PageWrapper>
   );
 }

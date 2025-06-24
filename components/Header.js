@@ -12,29 +12,29 @@ export default function Header() {
       <nav className="space-x-4 text-base font-semibold">
         <Link
           href="/"
-          className="text-black hover:text-blue-600 transition duration-200"
+          className="text-black hover:text-blue-600 transition duration-200 cursor-pointer"
         >
           Home
         </Link>
         <Link
           href="/artists"
-          className="text-black hover:text-blue-600 transition duration-200"
+          className="text-black hover:text-blue-600 transition duration-200 cursor-pointer"
         >
           Artists
         </Link>
         <Link
           href="/onboard"
-          className="text-black hover:text-blue-600 transition duration-200"
+          className="text-black hover:text-blue-600 transition duration-200 cursor-pointer"
         >
           Onboard
         </Link>
         <Link
           href="/dashboard"
-          className="text-black hover:text-blue-600 transition duration-200"
+          className="text-black hover:text-blue-600 transition duration-200 cursor-pointer"
         >
           Dashboard
         </Link>
-         <ThemeToggle />
+        <ThemeToggle />
       </nav>
     </header>
   );
