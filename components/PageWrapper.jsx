@@ -13,18 +13,14 @@ export default function PageWrapper({ children }) {
 
   if (!mounted) return null;
 
-  const isDark = theme === 'dark';
-
   return (
     <div
-      key={isDark ? 'dark' : 'light'}
       className="min-h-screen px-4 py-10 transition-colors duration-500
-        bg-gradient-to-br from-pink-100 via-rose-100 to-amber-100 
-        dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-        text-gray-900 dark:text-white"
+                 bg-gradient-to-br from-pink-100 via-rose-100 to-amber-100 
+                 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+                 text-gray-900 dark:text-white"
     >
       {children}
     </div>
   );
 }
-
