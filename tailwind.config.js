@@ -1,31 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-const config = {
+// tailwind.config.js
+export default {
+  darkMode: 'class', // ✅ Required for manual toggling
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',        // ✅ Includes all app pages/components
+    './components/**/*.{js,ts,jsx,tsx}', // ✅ Includes all custom components
   ],
-  darkMode: 'class', // or 'media' or false
   theme: {
     extend: {
-      colors: {
-        primary: '#a78bfa', // pastel purple
-        secondary: '#fbcfe8', // pastel pink
-        backgroundLight: '#ffe4e6', // light pink background
-        backgroundDark: '#1e293b', // dark background
-      },
-      borderRadius: {
-        'lg': '1rem',
-        'xl': '1.5rem',
-      },
-      boxShadow: {
-        card: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      },
       fontFamily: {
-        sans: ['Arial', 'Helvetica', 'sans-serif'],
+        sans: ['Arial', 'Helvetica', 'sans-serif'], // ✅ Clean readable font
       },
     },
   },
-  plugins: [],
+  plugins: [], // ✅ You can add plugins like @tailwindcss/forms if needed
 };
-
-export default config;

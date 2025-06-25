@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body {
-  @apply font-sans antialiased transition-colors duration-300;
+  @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
